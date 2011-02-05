@@ -1,0 +1,5 @@
+CREATE TABLE sentences (id int primary key, lang varchar(10), text varchar(2048));
+CREATE INDEX idx_lang ON sentences (lang);
+.mode tabs
+.import sentences.csv sentences
+VACUUM;
