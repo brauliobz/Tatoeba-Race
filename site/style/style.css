@@ -1,0 +1,28 @@
+#content {
+	width: 700px;
+	height: auto;
+	margin: auto;
+}
+
+#textP {
+	background-color: #FFFFFF;
+	border: solid black 1px;
+}
+
+#keyboardInput {
+	width: 100%;
+}
+
+.correctText {
+	background-color: lime;
+}
+
+.flagLink {
+	color: white;
+}
+
+#countDown {
+	color: red;
+	font-size: 15pt;
+	font-weight: bold;
+}
