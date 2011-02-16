@@ -13,12 +13,28 @@
 	<body>
 		<div id="content" >
 			<h1 style="text-align: center;">Choose a language</h1>
-			<p style="text-align: center;">
-<?php 			foreach(getLanguages() as $lang) {?>
-					<a href="race.php?lang=<?=$lang?>" class="flagLink">
-					<img src="img/<?=$lang?>.png" alt="<?=getName($lang)?>" title="<?=getName($lang)?>" />
-					</a>
-<?php			} ?>
+			<table style="text-align: center; border: 0px solid;">
+<?php
+			$i = 0;
+	 		foreach(getLanguages() as $lang) {
+	 			if ($i % 10 == 0) {
+	 				echo '<tr>';
+				}
+?>
+					<td style="vertical-align: top;">
+						<a href="race.php?lang=<?=$lang?>" class="flagLink">
+							<img src="img/<?=$lang?>.png" alt="<?=getName($lang)?>" title="<?=getName($lang)?>"/>
+							<br/>
+							<span class="imgCaption"><?= getName($lang) ?></span>
+						</a>
+					</td>
+<?php
+	 			if ($i % 10 == 9) {
+	 				echo '</tr>';
+				}
+				$i += 1;
+			}
+?>
 			</p>
 		</div>
 	</body>
