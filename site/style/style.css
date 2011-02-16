@@ -18,7 +18,11 @@
 }
 
 .flagLink {
-	color: white;
+	background-color: white;
+}
+
+.flagLink img {
+	border: 0px solid;
 }
 
 #countDown {

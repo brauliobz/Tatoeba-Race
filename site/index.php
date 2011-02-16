@@ -4,6 +4,7 @@
 	<head>
 		
 		<?php require_once('dao/dao.php'); ?>
+		<?php require_once('util/lang.php'); ?>
 
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Racing</title>
@@ -14,7 +15,9 @@
 			<h1 style="text-align: center;">Choose a language</h1>
 			<p style="text-align: center;">
 <?php 			foreach(getLanguages() as $lang) {?>
-			<a href="race.php?lang=<?=$lang?>" class="flagLink"><img src="img/<?=$lang?>.png" alt="<?=$lang?>"/></a>
+					<a href="race.php?lang=<?=$lang?>" class="flagLink">
+					<img src="img/<?=$lang?>.png" alt="<?=getName($lang)?>" title="<?=getName($lang)?>" />
+					</a>
 <?php			} ?>
 			</p>
 		</div>
