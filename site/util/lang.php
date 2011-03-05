@@ -1,13 +1,45 @@
 <?php
 
+/**
+ * Returns the sentence separator. The default is
+ * a single space between phrases.
+ */
 function getSeparator( $lang ) {
-	if ( $lang === 'jbo' ) // lojban
+	if ( $lang === 'jbo' ) // Lojban
 		return ' .i ';
+	if (
+			$lang === 'jpn' or // Japanese
+			$lang === 'cmn' or // Chinese
+			$lang === 'wuu' // Shangainese
+		)
+		return '';
 	else
 		return ' ';
 }
 
-function getName( $lang ) {
+/**
+ * Returns the direction of the language: left-to-right ('ltr')
+ * or right-to-left ('rtl').
+ */
+function getDirection( $lang ) {
+	if (
+			$lang === 'ara' or // Arabic
+			$lang === 'pes' or // Persian
+			$lang === 'heb' or // Hebrew
+			$lang === 'uig' or // Uygur
+			$lang === 'arz' or // Egyptian Arabic
+			$lang === 'yid' or // Yiddish
+			$lang === 'acm' or // Iraq Arabic
+			$lang === 'urd' )  // Urdu
+		return 'rtl';
+	else
+		return 'ltr';
+}
+
+/**
+ * Returns the English name of the language.
+ */
+function getEnglishName( $lang ) {
 	$name = array(
 		'afr' => 'Afrikaans',
 		'ain' => 'Ainu',

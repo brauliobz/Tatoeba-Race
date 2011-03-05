@@ -42,7 +42,7 @@
 	</head>
 	<body>
 		<div id="content">
-			<p id="textP">
+		<p id="textP" dir="<?= getDirection($_REQUEST['lang']) ?>">
 				<span id="text"><?php
 					if ( isset($_REQUEST['lang']) )
 						$lang = $_REQUEST['lang'];
@@ -56,7 +56,7 @@
 				?></span>
 			</p>
 			<p>
-				<input id="keyboardInput" type="text" disabled="disabled" style="width: 100%;"/>
+			<input id="keyboardInput" type="text" disabled="disabled" style="width: 100%;" dir="<?= getDirection($_REQUEST['lang']) ?>"/>
 			</p>
 			<p>
 				<button id="btnPlayAgain" onclick="window.location = window.location" style="display: none;">Play again</button>
