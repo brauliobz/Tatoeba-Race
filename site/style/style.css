@@ -19,6 +19,8 @@
 
 .flagLink {
 	background-color: white;
+	border: 0px solid;
+	margin: 0px;
 }
 
 .flagLink img {

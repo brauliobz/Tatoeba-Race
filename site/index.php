@@ -23,9 +23,8 @@
 ?>
 					<td style="vertical-align: top;">
 						<a href="race.php?lang=<?=$lang?>" class="flagLink">
-							<img src="img/<?=$lang?>.png" alt="<?=getEnglishName($lang)?>" title="<?=getEnglishName($lang)?>"/>
-							<br/>
-							<span class="imgCaption"><?= getEnglishName($lang) ?></span>
+							<img src="img/<?=$lang?>.png" alt="<?=getEnglishName($lang)?>" title="<?=getEnglishName($lang)?>"
+							/><br/><span class="imgCaption"><?= getEnglishName($lang) ?></span>
 						</a>
 					</td>
 <?php
