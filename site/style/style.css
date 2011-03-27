@@ -2,6 +2,7 @@
 	width: 700px;
 	height: auto;
 	margin: auto;
+	font-family: Trebuchet MS, sans;
 }
 
 #textP {
@@ -29,7 +30,7 @@
 }
 
 .imgCaption {
-	font-size: 7pt;
+	font-size: 8pt;
 	margin: 0px;
 }
 
@@ -37,4 +38,8 @@
 	color: red;
 	font-size: 15pt;
 	font-weight: bold;
+}
+
+h1 {
+	font-size: 15pt;
 }

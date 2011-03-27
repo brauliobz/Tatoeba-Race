@@ -1,8 +1,5 @@
-<<?='?'?>xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-	<head>
-		
+<?php include_once('include/top.php'); ?>
+
 		<?php
 			require_once('dao/dao.php');
 			require_once('util/lang.php');
@@ -24,9 +21,6 @@
 			}
 		?>
 
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Racing</title>
-		<link href="style/style.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="javascript/prototype.js" ></script>
 		<script type="text/javascript" src="javascript/race.js" ></script>
 		
@@ -39,8 +33,6 @@
 			};
 		</script>
 
-	</head>
-	<body>
 		<div id="content">
 		<p id="textP" dir="<?= getDirection($_REQUEST['lang']) ?>">
 				<span id="text"><?php
@@ -68,7 +60,7 @@
 				Change nº of sentences:
 				<?php
 				for ($i = 5; $i <= 25; $i += 5) {
-					echo "<a href=\"race.php?lang={$lang}&n_sentences={$i}\"/>{$i}</a> ";
+					echo "<a href=\"race.php?lang={$lang}&amp;n_sentences={$i}\" >{$i}</a> ";
 				}
 				?>
 			</p>
@@ -81,6 +73,5 @@
 			</p>
 			<p>Sentences CC-BY by Tatoeba (<a href="http://tatoeba.org">tatoeba.org</a>)</p>
 		</div>
-	</body>
-</html>
 
+<?php include_once('include/bottom.php'); ?>

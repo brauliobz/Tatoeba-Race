@@ -10,7 +10,8 @@ function getSeparator( $lang ) {
 	if (
 			$lang === 'jpn' or // Japanese
 			$lang === 'cmn' or // Chinese
-			$lang === 'wuu' // Shangainese
+			$lang === 'wuu' or // Shangainese
+			$lang === 'lzh' // Literary Chinese
 		)
 		return '';
 	else
