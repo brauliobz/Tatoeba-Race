@@ -44,6 +44,7 @@ function getEnglishName( $lang ) {
 	$name = array(
 		'afr' => 'Afrikaans',
 		'ain' => 'Ainu',
+		'ast' => 'Asturian',
 		'sqi' => 'Albanian',
 		'ara' => 'Arabic',
 		'hye' => 'Armenian',
@@ -70,6 +71,7 @@ function getEnglishName( $lang ) {
 		'fin' => 'Finnish',
 		'fra' => 'French',
 		'fry' => 'Frisian',
+		'gla' => 'Scottish Gaelic',
 		'glg' => 'Galician',
 		'kat' => 'Georgian',
 		'deu' => 'German',
