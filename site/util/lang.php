@@ -79,6 +79,7 @@ function getEnglishName( $lang ) {
 		'hin' => 'Hindi',
 		'hun' => 'Hungarian',
 		'isl' => 'Icelandic',
+		'ido' => 'Ido',
 		'ind' => 'Indonesian',
 		'ina' => 'Interlingua',
 		'acm' => 'Iraqi Arabic',
