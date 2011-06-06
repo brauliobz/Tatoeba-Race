@@ -41,6 +41,59 @@
 		return $s;
 	}
 
+	function getRandomSentenceAndTranslation( $langFrom, $langTo ) {
+
+		global $db;
+
+		$sqlCount =
+				"SELECT count(f.id) " .
+				"FROM " .
+				"	sentences f " .
+				"	INNER JOIN links l ON l.id1 = f.id " .
+				"	INNER JOIN sentences t ON t.id = l.id2 " .
+				"WHERE " .
+				"	f.lang = '$langFrom' " .
+				"	AND t.lang = '$langTo' ";
+		
+		$rs = $db->query($sqlCount);
+
+		$row = $rs->fetchArray();
+		$total = $row[0];
+		$offset = rand(0, $total-1);
+
+		$sqlGet =
+				"SELECT f.id, f.text, t.id, t.text " .
+				"FROM " .
+				"	sentences f " .
+				"	INNER JOIN links l ON l.id1 = f.id " .
+				"	INNER JOIN sentences t ON t.id = l.id2 " .
+				"WHERE " .
+				"	f.lang = '$langFrom' " .
+				"	AND t.lang = '$langTo' " .
+				"LIMIT $offset, 1 ";
+		
+		$rs = $db->query($sqlGet);
+		$row = $rs->fetchArray();
+
+		$from = new Sentence();
+		$from->id   = $row[0];
+		$from->text = $row[1];
+		$from->lang = $langFrom;
+
+		$from->text = trim($from->text);
+		$from->text = substituteFunnyChars( $from->text );
+
+		$to = new Sentence();
+		$to-> id = $row[2];
+		$to->text = $row[3];
+		$to->lang = $langTo;
+
+		$to->text = trim($to->text);
+		$to->text = substituteFunnyChars( $to->text );
+
+		return array( $from, $to );
+	}
+
 	/**
 	 * Obs.: this isn't a good solution, since some people have «'», but no «’»,
 	 * and vice versa.

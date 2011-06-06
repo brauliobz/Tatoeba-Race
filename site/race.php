@@ -13,11 +13,19 @@
 			if ( isset($_REQUEST['lang']) )
 				$lang = $_REQUEST['lang'];
 			else
-				$lang = null;
+				$lang = 'eng';
+
+			if ( isset($_REQUEST['lang_to']) )
+				$langTo = $_REQUEST['lang_to'];
+			else
+				$langTo = null;
 
 			$sentences = array($QTD_SENTENCES);
 			for ($i = 0; $i < $QTD_SENTENCES; $i++) {
-				$sentences[$i] = getRandomSentence($lang);
+				if ( $langTo == null )
+					$sentences[$i] = getRandomSentence($lang);
+				else
+					$sentences[$i] = getRandomSentenceAndTranslation($lang, $langTo);
 			}
 		?>
 
@@ -36,14 +44,19 @@
 		<div id="content">
 		<p id="textP" dir="<?= getDirection($_REQUEST['lang']) ?>">
 				<span id="text"><?php
-					if ( isset($_REQUEST['lang']) )
-						$lang = $_REQUEST['lang'];
-					else
-						$lang = null;
 					for ($i = 0; $i < $QTD_SENTENCES; $i++) {
-						if ($i > 0)
-							echo getSeparator($lang);
-						echo $sentences[$i]->text;
+						if ( $langTo == null ) {
+							if ($i > 0)
+								echo getSeparator($sentences[$i]->lang);
+							echo $sentences[$i]->text;
+						} else {
+							if ($i > 0) {
+								echo getSeparator($sentences[$i][1]->lang);
+							}
+							echo $sentences[$i][0]->text;
+							echo getSeparator($sentences[$i][0]->lang);
+							echo $sentences[$i][1]->text;
+						}
 					}
 				?></span>
 			</p>
@@ -60,14 +73,22 @@
 				Change nº of sentences:
 				<?php
 				for ($i = 5; $i <= 25; $i += 5) {
-					echo "<a href=\"race.php?lang={$lang}&amp;n_sentences={$i}\" >{$i}</a> ";
+					if ( $langTo == null )
+						echo "<a href=\"race.php?lang={$lang}&amp;n_sentences={$i}\" >{$i}</a> ";
+					else
+						echo "<a href=\"race.php?lang={$lang}&amp;lang_to={$langTo}&amp;n_sentences={$i}\" >{$i}</a> ";
 				}
 				?>
 			</p>
 			<p>
 				<label id="sentenceLinks"><?php
 					for ($i = 0; $i < $QTD_SENTENCES; $i++) {
-						echo "<a href='http://tatoeba.org/sentences/show/{$sentences[$i]->id}'>{$sentences[$i]->id}</a> ";
+						if ($langTo == null) {
+							echo "<a href='http://tatoeba.org/sentences/show/{$sentences[$i]->id}' title='{$sentences[$i]->text}'>{$sentences[$i]->id}</a> ";
+						} else {
+							echo "<a href='http://tatoeba.org/sentences/show/{$sentences[$i][0]->id}' title='{$sentences[$i][0]->text}'>{$sentences[$i][0]->id}</a> ";
+							echo "<a href='http://tatoeba.org/sentences/show/{$sentences[$i][1]->id}' title='{$sentences[$i][1]->text}'>{$sentences[$i][1]->id}</a> ";
+						}
 					}
 				?></label>
 			</p>
