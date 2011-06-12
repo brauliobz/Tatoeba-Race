@@ -45,6 +45,9 @@
 
 		global $db;
 
+		$langFrom = $db->escapeString($langFrom);
+		$langTo = $db->escapeString($langTo);
+
 		$sqlCount =
 				"SELECT count(f.id) " .
 				"FROM " .
@@ -54,11 +57,12 @@
 				"WHERE " .
 				"	f.lang = '$langFrom' " .
 				"	AND t.lang = '$langTo' ";
-		
+
 		$rs = $db->query($sqlCount);
 
 		$row = $rs->fetchArray();
 		$total = $row[0];
+
 		$offset = rand(0, $total-1);
 
 		$sqlGet =
@@ -103,6 +107,7 @@
 		// non-breaking space
 		$text = str_replace("\xC2\xA0 ", " ", $text);
 		$text = str_replace("\xC2\xA0", " ", $text);
+		$text = str_replace("\xE2\x80\x89", " ", $text);
 
 		// m-dash
 		$text = str_replace("—", "-", $text);
