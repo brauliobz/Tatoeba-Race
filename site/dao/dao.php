@@ -49,14 +49,12 @@
 		$langTo = $db->escapeString($langTo);
 
 		$sqlCount =
-				"SELECT count(f.id) " .
+				"SELECT count(*) " .
 				"FROM " .
-				"	sentences f " .
-				"	INNER JOIN links l ON l.id1 = f.id " .
-				"	INNER JOIN sentences t ON t.id = l.id2 " .
+				"	link_cache " .
 				"WHERE " .
-				"	f.lang = '$langFrom' " .
-				"	AND t.lang = '$langTo' ";
+				"	lang1 = '$langFrom' " .
+				"	AND lang2 = '$langTo' ";
 
 		$rs = $db->query($sqlCount);
 
@@ -66,14 +64,12 @@
 		$offset = rand(0, $total-1);
 
 		$sqlGet =
-				"SELECT f.id, f.text, t.id, t.text " .
+				"SELECT id1, text1, id2, text2 " .
 				"FROM " .
-				"	sentences f " .
-				"	INNER JOIN links l ON l.id1 = f.id " .
-				"	INNER JOIN sentences t ON t.id = l.id2 " .
+				"	link_cache " .
 				"WHERE " .
-				"	f.lang = '$langFrom' " .
-				"	AND t.lang = '$langTo' " .
+				"	lang1 = '$langFrom' " .
+				"	AND lang2 = '$langTo' " .
 				"LIMIT $offset, 1 ";
 		
 		$rs = $db->query($sqlGet);
@@ -127,7 +123,7 @@
 		return $text;
 	}
 
-	function getLanguages() {
+	function getLanguagesFromDB() {
 		
 		global $db;
 

@@ -27,6 +27,21 @@
 				else
 					$sentences[$i] = getRandomSentenceAndTranslation($lang, $langTo);
 			}
+
+			$text = "";
+			for ( $i = 0; $i < $QTD_SENTENCES; $i++ ) {
+				if ( ! isset($langTo ) ) {
+					if ( $i > 0 )
+						$text .= getSeparator($lang);
+					$text .= $sentences[$i]->text;
+				} else {
+					if ( $i > 0 )
+						$text .= getSeparator($langTo);
+					$text .= $sentences[$i][0]->text;
+					$text .= getSeparator($lang);
+					$text .= $sentences[$i][1]->text;
+				}
+			}
 		?>
 
 		<script type="text/javascript" src="javascript/prototype.js" ></script>
@@ -42,23 +57,14 @@
 		</script>
 
 		<div id="content">
-		<p id="textP" dir="<?= getDirection($_REQUEST['lang']) ?>">
-				<span id="text"><?php
-					for ($i = 0; $i < $QTD_SENTENCES; $i++) {
-						if ( $langTo == null ) {
-							if ($i > 0)
-								echo getSeparator($sentences[$i]->lang);
-							echo $sentences[$i]->text;
-						} else {
-							if ($i > 0) {
-								echo getSeparator($sentences[$i][1]->lang);
-							}
-							echo $sentences[$i][0]->text;
-							echo getSeparator($sentences[$i][0]->lang);
-							echo $sentences[$i][1]->text;
-						}
-					}
-				?></span>
+			<p style="text-align: center;">
+				<img src="img/<?= $lang ?>.png" />
+				<?php if ( isset($langTo) ) { ?>
+					&rarr; <img src="img/<?= $langTo ?>.png" />
+				<?php } ?>
+			</p>
+			<p id="textP" dir="<?= getDirection($_REQUEST['lang']) ?>">
+				<span id="text"><?= nl2br($text) ?></span>
 			</p>
 			<p>
 			<input id="keyboardInput" type="text" disabled="disabled" style="width: 100%;" dir="<?= getDirection($_REQUEST['lang']) ?>"/>
@@ -92,7 +98,6 @@
 					}
 				?></label>
 			</p>
-			<p>Sentences CC-BY by Tatoeba (<a href="http://tatoeba.org">tatoeba.org</a>)</p>
 		</div>
 
 <?php include_once('include/bottom.php'); ?>

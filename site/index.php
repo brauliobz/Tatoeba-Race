@@ -4,30 +4,41 @@
 <?php require_once('util/lang.php'); ?>
 
 <div id="content">
-	<h1 style="text-align: center;">Choose a language</h1>
-	<table style="text-align: center; border: 0px solid; margin: auto;">
-	<?php
-		$i = 0;
-		$cols = 13;
-		foreach(getLanguages() as $lang) {
-			if ($i % $cols == 0)
-				echo '<tr>';
-	?>
-			<td style="vertical-align: top; width: 50px; height: 70px;">
-				<a href="race.php?lang=<?=$lang?>" class="flagLink">
-					<img src="img/<?=$lang?>.png" alt="<?=getEnglishName($lang)?>" title="<?=getEnglishName($lang)?>"
-					/><br/><span class="imgCaption"><?= getEnglishName($lang) ?></span>
-				</a>
-			</td>
-	<?php
-	 		if ($i % $cols === $cols - 1)
-	 			echo '</tr>';
-			$i += 1;
-		}
-		if ( $i % $cols !== 0 )
-			echo '</tr>';
-	?>
-	</table>
+
+	<h1>Tatoeba Racer</h1>
+
+	<ul>
+		<li>
+			<form action="race.php" method="GET">
+				<strong>One Language</strong><br/>Practice sentences in
+				<select name="lang" id="lang" ><?php
+					foreach ( getLanguages() as $lang ) {
+						echo '<option value="' . $lang . '">' . getEnglishName($lang) . "</option>";
+					}
+				?></select> -
+				<input type="submit" value="Go" />
+			</form>
+		</li>
+		<li>
+			<form action="race.php" method="GET">
+				<strong>Two Languages</strong><br/>
+				Practice sentences in
+				<select name="lang" id="lang" ><?php
+					foreach ( getLanguages() as $lang ) {
+						echo '<option value="' . $lang . '">' . getEnglishName($lang) . "</option>";
+					}
+				?></select>
+				and their translations into
+				<select name="lang_to" id="langTo" ><?php
+					foreach ( getLanguages() as $lang ) {
+						echo '<option value="' . $lang . '">' . getEnglishName($lang) . "</option>";
+					}
+				?></select> -
+				<input type="submit" value="Go" />
+			</form>
+		</li>
+	</ul>
+
 </div>
 
 <?php include_once('include/bottom.php'); ?>

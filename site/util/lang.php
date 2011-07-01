@@ -1,6 +1,23 @@
 <?php
 
 /**
+ * Return all the languages' codes.
+ */
+function getLanguages() {
+	return array(
+		'afr', 'ain', 'ast', 'sqi', 'ara', 'hye', 'eus', 'bel', 'ben', 'bos',
+		'bre', 'bul', 'yue', 'cat', 'cha', 'cmn', 'hrv', 'cycl', 'ces', 'dan',
+		'nld', 'arz', 'eng', 'epo', 'est', 'fao', 'fin', 'fra', 'fry', 'gla',
+		'glg', 'kat', 'deu', 'heb', 'hin', 'hun', 'isl', 'ido', 'ind', 'ina',
+		'ile', 'acm', 'gle', 'ita', 'jpn', 'kaz', 'tlh', 'kor', 'lat', 'lvs',
+		'lzh', 'lit', 'jbo', 'nds', 'zsm', 'mal', 'ell', 'mon', 'nob', 'non',
+		'orv', 'oss', 'pes', 'pol', 'por', 'que', 'ron', 'roh', 'rus', 'san',
+		'srp', 'wuu', 'scn', 'slk', 'slv', 'spa', 'swh', 'swe', 'tgl', 'tat',
+		'nan', 'tha', 'toki', 'tur', 'ukr', 'urd', 'uig', 'uzb', 'vie', 'vol',
+		'yid');
+}
+
+/**
  * Returns the sentence separator. The default is
  * a single space between phrases.
  */
