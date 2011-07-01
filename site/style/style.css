@@ -1,8 +1,17 @@
+body {
+	font-family: Trebuchet MS, sans;
+}
+
+#top {
+	width: 800px;
+	margin: auto;
+	font-size: x-small;
+}
+
 #content {
 	width: 800px;
 	height: auto;
 	margin: auto;
-	font-family: Trebuchet MS, sans;
 }
 
 #textP {
@@ -18,28 +27,19 @@
 	background-color: lime;
 }
 
-.flagLink {
-	background-color: white;
-	border: 0px solid;
-	margin: 0px;
-}
-
-.flagLink img {
-	border: 0px solid;
-	margin: 0px;
-}
-
-.imgCaption {
-	font-size: 8pt;
-	margin: 0px;
-}
-
 #countDown {
 	color: red;
-	font-size: 15pt;
+	font-size: large;
 	font-weight: bold;
 }
 
 h1 {
-	font-size: 15pt;
+	font-size: x-large;
+}
+
+#bottom {
+	text-align: center;
+	width: 800px;
+	margin: auto;
+	font-size: small;
 }

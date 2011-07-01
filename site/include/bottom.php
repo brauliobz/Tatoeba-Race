@@ -1,5 +1,5 @@
 
-	<div style="text-align: center; width: 800px; width: 99%;">
+	<div id="bottom" >
 		<hr width="800px;"/>
 		<small>
 			<em>
