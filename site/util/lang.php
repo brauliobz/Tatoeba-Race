@@ -82,6 +82,7 @@ function getEnglishName( $lang ) {
 		'ido' => 'Ido',
 		'ind' => 'Indonesian',
 		'ina' => 'Interlingua',
+		'ile' => 'Interlingue',
 		'acm' => 'Iraqi Arabic',
 		'gle' => 'Irish',
 		'ita' => 'Italian',
