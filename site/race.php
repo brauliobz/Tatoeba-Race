@@ -43,10 +43,12 @@
 	}
 
 	// cookies to remember the language choices
-	
-	setCookie('lang', $lang);
+
+	$expire = time() + 30*24*60*60; // 30 days
+
+	setCookie('lang', $lang, $expire);
 	if ( isset($langTo) )
-		setCookie('langTo', $langTo);
+		setCookie('langTo', $langTo, $expire);
 ?>
 
 <?php include_once('include/top.php'); ?>
