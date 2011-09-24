@@ -14,7 +14,7 @@ function getLanguages() {
 		'orv', 'oss', 'pes', 'pol', 'por', 'que', 'ron', 'roh', 'rus', 'san',
 		'srp', 'wuu', 'scn', 'slk', 'slv', 'spa', 'swh', 'swe', 'tgl', 'tat',
 		'nan', 'tha', 'toki', 'tur', 'ukr', 'urd', 'uig', 'uzb', 'vie', 'vol',
-		'yid');
+		'xal', 'yid');
 }
 
 /**
@@ -104,6 +104,7 @@ function getEnglishName( $lang ) {
 		'gle' => 'Irish',
 		'ita' => 'Italian',
 		'jpn' => 'Japanese',
+		'xal' => 'Kalmyk',
 		'kaz' => 'Kazakh',
 		'tlh' => 'Klingon',
 		'kor' => 'Korean',
