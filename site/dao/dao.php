@@ -101,9 +101,9 @@
 	function substituteFunnyChars( $text ) {
 		
 		// non-breaking space
-		$text = str_replace("\xC2\xA0 ", " ", $text);
 		$text = str_replace("\xC2\xA0", " ", $text);
 		$text = str_replace("\xE2\x80\x89", " ", $text);
+		$text = str_replace("\xE2\x80\xAF", " ", $text);
 
 		// m-dash
 		$text = str_replace("—", "-", $text);
