@@ -53,8 +53,8 @@
 
 <?php include_once('include/top.php'); ?>
 
-<script type="text/javascript" src="javascript/prototype.js" ></script>
-<script type="text/javascript" src="javascript/race.js" ></script>
+<script type="text/javascript" src="/script/prototype.js" ></script>
+<script type="text/javascript" src="/script/race.js" ></script>
 
 <!-- Initialization script -->
 <script type="text/javascript">

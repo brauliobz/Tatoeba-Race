@@ -9,31 +9,31 @@
 		if ( $lang == null )
 			$lang = 'eng';
 		
-		$lang = $db->escapeString($lang);
+		$lang = $db->quote($lang);
 
 		$sql1 = "SELECT count(*) \n" .
 				"FROM sentences \n" .
-				"WHERE lang = '$lang' " ;
+				"WHERE lang = $lang " ;
 		
 		$rs = $db->query($sql1);
 
-		$row = $rs->fetchArray();
-		$total = $row[0];
+		$row = $rs->fetchAll();
+		$total = $row[0][0];
 		$offset = rand(0, $total-1);
 
 		$sql2 =
 				"SELECT id, text, lang " .
 				"FROM sentences s " .
-				"WHERE lang = '$lang' " .
+				"WHERE lang = $lang " .
 				"LIMIT $offset, 1; ";
-		
+
 		$rs = $db->query($sql2);
-		$row = $rs->fetchArray();
+		$row = $rs->fetchAll();
 
 		$s = new Sentence();
-		$s->id   = $row[0];
-		$s->text = $row[1];
-		$s->lang = $row[2];
+		$s->id   = $row[0][0];
+		$s->text = $row[0][1];
+		$s->lang = $row[0][2];
 
 		$s->text = trim($s->text);
 		$s->text = substituteFunnyChars( $s->text );
@@ -45,21 +45,21 @@
 
 		global $db;
 
-		$langFrom = $db->escapeString($langFrom);
-		$langTo = $db->escapeString($langTo);
+		$langFrom = $db->quote($langFrom);
+		$langTo = $db->quote($langTo);
 
 		$sqlCount =
 				"SELECT count(*) " .
 				"FROM " .
 				"	link_cache " .
 				"WHERE " .
-				"	lang1 = '$langFrom' " .
-				"	AND lang2 = '$langTo' ";
+				"	lang1 = $langFrom " .
+				"	AND lang2 = $langTo ";
 
 		$rs = $db->query($sqlCount);
 
-		$row = $rs->fetchArray();
-		$total = $row[0];
+		$row = $rs->fetchAll();
+		$total = $row[0][0];
 
 		$offset = rand(0, $total-1);
 
@@ -68,24 +68,24 @@
 				"FROM " .
 				"	link_cache " .
 				"WHERE " .
-				"	lang1 = '$langFrom' " .
-				"	AND lang2 = '$langTo' " .
+				"	lang1 = $langFrom " .
+				"	AND lang2 = $langTo " .
 				"LIMIT $offset, 1 ";
 		
 		$rs = $db->query($sqlGet);
-		$row = $rs->fetchArray();
+		$row = $rs->fetchAll();
 
 		$from = new Sentence();
-		$from->id   = $row[0];
-		$from->text = $row[1];
+		$from->id   = $row[0][0];
+		$from->text = $row[0][1];
 		$from->lang = $langFrom;
 
 		$from->text = trim($from->text);
 		$from->text = substituteFunnyChars( $from->text );
 
 		$to = new Sentence();
-		$to-> id = $row[2];
-		$to->text = $row[3];
+		$to-> id = $row[0][2];
+		$to->text = $row[0][3];
 		$to->lang = $langTo;
 
 		$to->text = trim($to->text);
@@ -136,7 +136,7 @@
 		$langs = array();
 		
 		$rs = $db->query($sql);
-		while ( ($row = $rs->fetchArray()) !== false ) {
+		while ( ($row = $rs->fetchAll()) !== false ) {
 			if ($row[0] !== "")
 				$langs[] = $row[0];
 		}
