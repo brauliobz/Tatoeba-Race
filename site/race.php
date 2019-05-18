@@ -4,18 +4,18 @@
 
 	$QTD_SENTENCES = 5;
 
-	if ( isset($_REQUEST['n_sentences']) )
-		$QTD_SENTENCES = (int)($_REQUEST['n_sentences']);
+	if ( isset($_GET['n_sentences']) )
+		$QTD_SENTENCES = (int)($_GET['n_sentences']);
 	if ( 1 > $QTD_SENTENCES || $QTD_SENTENCES > 25 )
 		$QTD_SENTENCES = 5;
 	
-	if ( isset($_REQUEST['lang']) )
-		$lang = $_REQUEST['lang'];
+	if ( isset($_GET['lang']) )
+		$lang = $_GET['lang'];
 	else
 		$lang = 'eng';
 	
-	if ( isset($_REQUEST['lang_to']) )
-		$langTo = $_REQUEST['lang_to'];
+	if ( isset($_GET['lang_to']) )
+		$langTo = $_GET['lang_to'];
 	else
 		$langTo = null;
 	
@@ -72,11 +72,11 @@
 			&rarr; <img src="img/<?= $langTo ?>.png" />
 		<?php } ?>
 	</p>
-	<p id="textP" dir="<?= getDirection($_REQUEST['lang']) ?>">
+	<p id="textP" dir="<?= getDirection($_GET['lang']) ?>">
 		<span id="text"><?= nl2br($text) ?></span>
 	</p>
 	<p>
-		<input id="keyboardInput" type="text" disabled="disabled" style="width: 100%;" dir="<?= getDirection($_REQUEST['lang']) ?>"/>
+		<input id="keyboardInput" type="text" disabled="disabled" style="width: 100%;" dir="<?= getDirection($_GET['lang']) ?>"/>
 	</p>
 	<p>
 		<button id="btnPlayAgain" onclick="window.location = window.location" style="display: none;">Play again</button>

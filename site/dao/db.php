@@ -1,5 +1,5 @@
 <?php
 
-	$db = new PDO('sqlite:/var/data/sentencas.sqlite3');
+	$db = new PDO('sqlite:/var/data/type.braul.io.sqlite3');
 	
 ?>
