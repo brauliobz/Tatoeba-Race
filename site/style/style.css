@@ -3,13 +3,17 @@ body {
 }
 
 #top {
-	width: 800px;
+	width: 1000px;
 	margin: auto;
 	font-size: x-small;
 }
 
+#top hr {
+	width: 1000px;
+}
+
 #content {
-	width: 800px;
+	width: 1000px;
 	height: auto;
 	margin: auto;
 }
@@ -39,7 +43,11 @@ h1 {
 
 #bottom {
 	text-align: center;
-	width: 800px;
+	width: 1000px;
 	margin: auto;
 	font-size: small;
+}
+
+#bottom hr {
+	width: 1000px;
 }

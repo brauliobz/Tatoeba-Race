@@ -67,9 +67,9 @@
 
 <div id="content">
 	<p style="text-align: center;">
-		<img src="img/<?= $lang ?>.png" />
+		<img src="img/<?= $lang ?>.svg" />
 		<?php if ( isset($langTo) ) { ?>
-			&rarr; <img src="img/<?= $langTo ?>.png" />
+			&rarr; <img src="img/<?= $langTo ?>.svg" />
 		<?php } ?>
 	</p>
 	<p id="textP" dir="<?= getDirection($_GET['lang']) ?>">

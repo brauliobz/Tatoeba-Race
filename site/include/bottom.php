@@ -1,6 +1,6 @@
 
 	<div id="bottom" >
-		<hr width="800px;"/>
+		<hr/>
 		<small>
 			<em>
 				Tatoeba Racer<br/>

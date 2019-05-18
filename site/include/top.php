@@ -9,5 +9,5 @@
 	<body>
 		<div id="top">
 			<a href="/">Home</a> | <a href="http://braul.io/">Bráulio's home</a>
-			<hr style="width: 800px;">
+			<hr>
 		</div>
