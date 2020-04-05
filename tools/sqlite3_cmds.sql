@@ -39,10 +39,10 @@ CREATE TABLE link_cache (
 
 CREATE INDEX idx_link_cache_lang_1_and_2 ON link_cache(lang1, lang2);
 
-.mode tabs
+.separator \t
 
 SELECT '>>> Importing sentences';
-.import sentences.csv sentences
+.import sentences.fixed.csv sentences
 
 SELECT '>>> Importing links';
 .import links.csv links
